@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- White-accent YouTube TV inspired theme -->
+    <!-- Psquare YT: YouTube Premium TV-inspired neutral dark grid with white focus accents -->
     <color name="lb_control_button_color">#E6FFFFFF</color>
 
-    <!-- Common colors -->
-    <color name="default_background_gradient_start">#07111F</color>
-    <color name="default_background_gradient_end">#03070D</color>
+    <!-- AMOLED dark base -->
+    <color name="default_background_gradient_start">#000000</color>
+    <color name="default_background_gradient_end">#050505</color>
     <color name="fastlane_background">#FFFFFF</color>
-    <color name="fastlane_background_dark">#B8142233</color>
+    <color name="fastlane_background_dark">#171717</color>
     <color name="default_light_grey">#343434</color>
     <color name="search_opaque">#FFFFFF</color>
     <color name="search_opaque_yellow">#FFFFFF</color>
 
-    <!-- Card view colors -->
+    <!-- Grid cards: subtle translucent neutral surfaces; white selected state -->
     <color name="card_selected_background_white">#FFFFFF</color>
     <color name="card_selected_background_white_grey">#E6E6E6</color>
     <color name="card_selected_background_yellow">#FFFFFF</color>
     <color name="card_selected_background_grey">#343434</color>
     <color name="card_selected_text_black">#000000</color>
     <color name="card_selected_text_grey">#343434</color>
-    <color name="card_default_background">#553B5268</color>
-    <color name="card_default_background_dark">#6630445A</color>
+    <color name="card_default_background">#551A1A1A</color>
+    <color name="card_default_background_dark">#66111111</color>
     <color name="card_default_text">#FFFFFF</color>
 
-    <!-- Browse fragment colors -->
-    <color name="shelf_background">#CC101B2A</color>
-    <color name="shelf_background_dark">#E6091422</color>
-    <color name="icon_background">#805A7896</color>
-    <color name="icon_alt_background">#66506A82</color>
+    <!-- Browse shelves and navigation surfaces -->
+    <color name="shelf_background">#CC171717</color>
+    <color name="shelf_background_dark">#E6050505</color>
+    <color name="icon_background">#80292929</color>
+    <color name="icon_alt_background">#66202020</color>
     <color name="player_background">#FF000000</color>
 
     <!-- Dark color scheme -->
     <color name="scheme_grey_background">#111111</color>
     <color name="scheme_grey_background_dark">#111111</color>
-    <color name="scheme_grey_shelf_background_dark">#E607101B</color>
-    <color name="scheme_grey_card_background_dark">#6630445A</color>
+    <color name="scheme_grey_shelf_background_dark">#E6050505</color>
+    <color name="scheme_grey_card_background_dark">#66111111</color>
 
-    <!-- Red color scheme surfaces retain dark neutral surfaces -->
+    <!-- Red color scheme retains dark neutral surfaces -->
     <color name="scheme_red_background">#111111</color>
     <color name="scheme_red_background_dark">#111111</color>
     <color name="scheme_red_shelf_background_dark">#050505</color>
     <color name="scheme_red_card_background_dark">#171717</color>
 
-    <!-- Blue theme uses the requested monochrome white accent -->
+    <!-- Keep the existing light blue scheme definitions unchanged -->
     <color name="scheme_blue_background">#FFFFFF</color>
     <color name="scheme_blue_background_dark">#D9D9D9</color>
 
