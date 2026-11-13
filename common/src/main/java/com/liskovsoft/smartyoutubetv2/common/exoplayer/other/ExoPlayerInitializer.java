@@ -94,7 +94,8 @@ public class ExoPlayerInitializer {
     }
 
     /**
-     * Increase player's min/max buffer size to 60 secs
+     * Use a deeper VOD buffer to reduce rebuffering on variable Wi-Fi. Keep the
+     * explicit LOW profile for live streams, where latency matters more.
      * @return load control
      */
     private DefaultLoadControl createLoadControl() {
@@ -108,9 +109,9 @@ public class ExoPlayerInitializer {
 
         // Default values
         int minBufferMs = 30_000;
-        int maxBufferMs = 30_000;
-        int bufferForPlaybackMs = 2_500;
-        int bufferForPlaybackAfterRebufferMs = 5_000;
+        int maxBufferMs = 60_000;
+        int bufferForPlaybackMs = 3_000;
+        int bufferForPlaybackAfterRebufferMs = 8_000;
 
         switch (mPlayerData.getVideoBufferType()) {
             case PlayerData.BUFFER_HIGHEST:
@@ -128,8 +129,8 @@ public class ExoPlayerInitializer {
                 baseBuilder.setBackBuffer(minBufferMs, true);
                 break;
             case PlayerData.BUFFER_MEDIUM:
-                //minBufferMs = 30_000;
-                //maxBufferMs = 30_000;
+                // Balanced default for Android TV: retain more media ahead of playback
+                // without forcing the large memory footprint of the HIGHEST profile.
                 break;
             case PlayerData.BUFFER_LOW:
                 minBufferMs = 5_000; // LIVE fix
