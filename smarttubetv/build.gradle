@@ -191,6 +191,9 @@ dependencies {
     implementation 'androidx.media:media:' + mediaXVersion // exoplayer fix
     implementation 'androidx.constraintlayout:constraintlayout:' + constraintLayoutXVersion
 
+    // Real-time backdrop blur for Liquid Glass surfaces on Android TV
+    implementation 'com.github.Dimezis:BlurView:version-2.0.6'
+
     implementation 'com.github.bumptech.glide:glide:' + glideVersion
     implementation 'com.github.bumptech.glide:annotations:' + glideVersion
     annotationProcessor 'com.github.bumptech.glide:compiler:' + glideVersion

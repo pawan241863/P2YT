@@ -22,6 +22,7 @@ public class VideoCardView extends BaseCardView {
     PreviewCardView mPreviewCard;
 
     ViewGroup mInfoArea;
+    ViewGroup mInfoContent;
 
     private TextView mTitleView;
     private TextView mContentView;
@@ -68,6 +69,7 @@ public class VideoCardView extends BaseCardView {
         View view = inflater.inflate(R.layout.lb_video_card_view, this);
         mPreviewCard = view.findViewById(R.id.layout_preview_card);
         mInfoArea = view.findViewById(R.id.info_field);
+        mInfoContent = view.findViewById(R.id.info_content);
 
         TypedArray cardAttrs =
                 getContext().obtainStyledAttributes(styleResId, R.styleable.lbImageCardView);
@@ -87,12 +89,12 @@ public class VideoCardView extends BaseCardView {
         // Create children
         if (hasTitle) {
             mTitleView = (TextView) inflater.inflate(R.layout.lb_image_card_view_themed_title, mInfoArea, false);
-            mInfoArea.addView(mTitleView);
+            mInfoContent.addView(mTitleView);
         }
 
         if (hasContent) {
             mContentView = (TextView) inflater.inflate(R.layout.lb_image_card_view_themed_content, mInfoArea, false);
-            mInfoArea.addView(mContentView);
+            mInfoContent.addView(mContentView);
         }
 
         // Backward compatibility: Newly created ImageCardViews should change

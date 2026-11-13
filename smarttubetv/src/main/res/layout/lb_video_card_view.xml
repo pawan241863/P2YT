@@ -13,16 +13,22 @@
         android:layout_height="wrap_content"
         lb:layout_viewType="info">
 
-        <RelativeLayout
+        <com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView
             android:id="@+id/info_field"
             android:layout_width="match_parent"
             android:layout_height="@dimen/lb_basic_card_info_height"
             android:layout_centerHorizontal="true"
-            android:padding="@dimen/lb_basic_card_info_padding">
+            android:background="@drawable/liquid_glass_panel">
 
-            <!-- Content below will be replaced. Real locations: -->
-            <!-- lb_image_card_view_themed_title.xml -->
-            <!-- lb_image_card_view_themed_content.xml -->
+            <RelativeLayout
+                android:id="@+id/info_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/lb_basic_card_info_padding">
+
+                <!-- Content below will be replaced. Real locations: -->
+                <!-- lb_image_card_view_themed_title.xml -->
+                <!-- lb_image_card_view_themed_content.xml -->
 
             <TextView
                 android:id="@+id/title_text"
@@ -70,6 +76,7 @@
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
-        </RelativeLayout>
+            </RelativeLayout>
+        </com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView>
     </androidx.leanback.widget.NonOverlappingFrameLayout>
 </merge>
