@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         lb:layout_viewType="info">
 
-        <RelativeLayout
+        <com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView
             android:id="@+id/info_field"
             android:layout_width="match_parent"
             android:layout_height="@dimen/lb_basic_card_info_height"
@@ -70,6 +70,6 @@
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
-        </RelativeLayout>
+        </com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView>
     </androidx.leanback.widget.NonOverlappingFrameLayout>
 </merge>
