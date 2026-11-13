@@ -4,10 +4,10 @@
     <color name="lb_control_button_color">#E6FFFFFF</color>
 
     <!-- Common colors -->
-    <color name="default_background_gradient_start">#000000</color>
-    <color name="default_background_gradient_end">#000000</color>
+    <color name="default_background_gradient_start">#07111F</color>
+    <color name="default_background_gradient_end">#03070D</color>
     <color name="fastlane_background">#FFFFFF</color>
-    <color name="fastlane_background_dark">#171717</color>
+    <color name="fastlane_background_dark">#B8142233</color>
     <color name="default_light_grey">#343434</color>
     <color name="search_opaque">#FFFFFF</color>
     <color name="search_opaque_yellow">#FFFFFF</color>
@@ -19,22 +19,22 @@
     <color name="card_selected_background_grey">#343434</color>
     <color name="card_selected_text_black">#000000</color>
     <color name="card_selected_text_grey">#343434</color>
-    <color name="card_default_background">#33212D3B</color>
-    <color name="card_default_background_dark">#2B182431</color>
+    <color name="card_default_background">#553B5268</color>
+    <color name="card_default_background_dark">#6630445A</color>
     <color name="card_default_text">#FFFFFF</color>
 
     <!-- Browse fragment colors -->
-    <color name="shelf_background">#171E28</color>
-    <color name="shelf_background_dark">#0B111A</color>
-    <color name="icon_background">#50303D4D</color>
-    <color name="icon_alt_background">#4026313E</color>
+    <color name="shelf_background">#CC101B2A</color>
+    <color name="shelf_background_dark">#E6091422</color>
+    <color name="icon_background">#805A7896</color>
+    <color name="icon_alt_background">#66506A82</color>
     <color name="player_background">#FF000000</color>
 
     <!-- Dark color scheme -->
     <color name="scheme_grey_background">#111111</color>
     <color name="scheme_grey_background_dark">#111111</color>
-    <color name="scheme_grey_shelf_background_dark">#000000</color>
-    <color name="scheme_grey_card_background_dark">#111111</color>
+    <color name="scheme_grey_shelf_background_dark">#E607101B</color>
+    <color name="scheme_grey_card_background_dark">#6630445A</color>
 
     <!-- Red color scheme surfaces retain dark neutral surfaces -->
     <color name="scheme_red_background">#111111</color>
