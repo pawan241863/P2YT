@@ -1,4 +1,5 @@
 # Dedicated standalone universal APK workflow for the Psquare YT customized Android TV build.
+# Build output: universal APK for broad Android TV device compatibility.
 name: PSQUARE NEW YOUTUBE APK
 
 on:
