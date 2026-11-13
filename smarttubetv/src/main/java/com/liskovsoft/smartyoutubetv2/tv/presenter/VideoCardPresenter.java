@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build.VERSION;
 import android.util.Pair;
 import android.view.View;
@@ -85,6 +86,9 @@ public class VideoCardPresenter extends LongClickPresenter {
         cardView.enableTitle(isTitleEnabled());
         cardView.enableContent(isContentEnabled());
         cardView.setBackgroundColor(mDefaultBackgroundColor); // background is temporarily visible during animations
+        if (VERSION.SDK_INT >= 23) {
+            cardView.setForeground(createGlassDrawable(context, false, true));
+        }
         //if (VERSION.SDK_INT >= 23 && MainUIData.instance(context).isUiTweakEnabled(MainUIData.UI_TWEAK_ROUNDED_CORNERS)) {
         //    cardView.setForeground(ContextCompat.getDrawable(context, R.drawable.lb_card_outline));
         //}
@@ -103,7 +107,7 @@ public class VideoCardPresenter extends LongClickPresenter {
 
         View infoField = view.findViewById(R.id.info_field);
         if (infoField != null) {
-            infoField.setBackgroundColor(backgroundColor);
+            infoField.setBackground(createGlassDrawable(view.getContext(), selected, false));
         }
 
         TextView titleText = view.findViewById(R.id.title_text);
@@ -114,6 +118,22 @@ public class VideoCardPresenter extends LongClickPresenter {
         if (contentText != null) {
             contentText.setTextColor(textColor);
         }
+    }
+
+    private GradientDrawable createGlassDrawable(Context context, boolean selected, boolean outlineOnly) {
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.RECTANGLE);
+        drawable.setCornerRadius(context.getResources().getDisplayMetrics().density * 12f);
+        if (outlineOnly) {
+            drawable.setColor(android.graphics.Color.TRANSPARENT);
+            drawable.setStroke(Math.round(context.getResources().getDisplayMetrics().density * (selected ? 2f : 1f)),
+                    selected ? 0xDDFFFFFF : 0x66FFFFFF);
+        } else {
+            drawable.setColor(selected ? 0xE6F4F7FC : 0xB8142233);
+            drawable.setStroke(Math.round(context.getResources().getDisplayMetrics().density * (selected ? 1.5f : 1f)),
+                    selected ? 0xFFFFFFFF : 0x55FFFFFF);
+        }
+        return drawable;
     }
 
     @Override
