@@ -16,6 +16,11 @@
 
 package com.liskovsoft.smartyoutubetv2.tv.presenter;
 
+import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.util.TypedValue;
+
 import androidx.leanback.widget.AbstractDetailsDescriptionPresenter;
 
 import com.liskovsoft.smartyoutubetv2.common.app.models.data.Video;
@@ -27,7 +32,18 @@ public class DetailsDescriptionPresenter extends AbstractDetailsDescriptionPrese
         Video video = (Video) item;
 
         if (video != null) {
+            // Keep the playback title discreet and anchor it to the upper-right edge.
             viewHolder.getTitle().setText(video.getTitle());
+            viewHolder.getTitle().setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+            viewHolder.getTitle().setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
+            viewHolder.getTitle().setMaxLines(2);
+            viewHolder.getTitle().setEllipsize(TextUtils.TruncateAt.END);
+            ViewGroup.LayoutParams titleParams = viewHolder.getTitle().getLayoutParams();
+            if (titleParams != null) {
+                titleParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.getTitle().setLayoutParams(titleParams);
+            }
+
             viewHolder.getSubtitle().setText(video.getAuthor());
             viewHolder.getBody().setText(video.getSecondTitle());
         }
