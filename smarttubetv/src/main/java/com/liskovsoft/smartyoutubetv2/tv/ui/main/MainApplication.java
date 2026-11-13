@@ -233,7 +233,8 @@ public class MainApplication extends MultiDexApplication implements Configuratio
         ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         boolean lowRamDevice = activityManager != null && activityManager.isLowRamDevice();
 
-        if (lowRamDevice || level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+        if ((lowRamDevice && level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)
+                || level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
             clearImageMemoryCache();
         }
     }
