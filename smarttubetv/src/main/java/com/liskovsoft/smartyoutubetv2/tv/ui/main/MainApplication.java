@@ -1,6 +1,10 @@
 package com.liskovsoft.smartyoutubetv2.tv.ui.main;
 
+import android.app.ActivityManager;
+import android.content.ComponentCallbacks2;
 import android.os.Build.VERSION;
+
+import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
 import androidx.multidex.MultiDexApplication;
@@ -215,6 +219,37 @@ public class MainApplication extends MultiDexApplication implements Configuratio
                     playerData.persistNow();
                 }
             }
+        }
+    }
+
+    /**
+     * Release decoded thumbnail memory when Android TV is under memory pressure.
+     * Video playback hardware acceleration remains enabled.
+     */
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        boolean lowRamDevice = activityManager != null && activityManager.isLowRamDevice();
+
+        if (lowRamDevice || level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+            clearImageMemoryCache();
+        }
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        clearImageMemoryCache();
+    }
+
+    private void clearImageMemoryCache() {
+        try {
+            // Android invokes these callbacks on the main thread, as required by Glide.
+            Glide.get(this).clearMemory();
+        } catch (RuntimeException ignored) {
+            // Cache trimming must never crash the app on vendor Android TV builds.
         }
     }
 }
