@@ -59,7 +59,8 @@ public class GlassBlurView extends BlurView {
                 clearDrawable = decor.getBackground();
             }
 
-            setupWith(blurRoot, new RenderScriptBlur(getContext()))
+            setupWith(blurRoot)
+                    .setBlurAlgorithm(new RenderScriptBlur(getContext()))
                     .setFrameClearDrawable(clearDrawable)
                     .setBlurRadius(16f)
                     .setOverlayColor(Color.parseColor("#66202D40"));
