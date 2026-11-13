@@ -237,10 +237,15 @@ public class SidebarService implements ProfileChangeListener {
 
     private void initSections() {
         mDefaultSections.put(R.string.header_notifications, MediaGroup.TYPE_NOTIFICATIONS);
-        mDefaultSections.put(R.string.header_home, MediaGroup.TYPE_HOME);        mDefaultSections.put(R.string.header_trending, MediaGroup.TYPE_TRENDING);        mDefaultSections.put(R.string.header_sports, MediaGroup.TYPE_SPORTS);
-        mDefaultSections.put(R.string.badge_live, MediaGroup.TYPE_LIVE);        mDefaultSections.put(R.string.header_news, MediaGroup.TYPE_NEWS);
-        mDefaultSections.put(R.string.header_music, MediaGroup.TYPE_MUSIC);        mDefaultSections.put(R.string.header_history, MediaGroup.TYPE_HISTORY);
-        mDefaultSections.put(R.string.header_blocked_channels, MediaGroup.TYPE_BLOCKED_CHANNELS);        mDefaultSections.put(R.string.playback_queue_category_title, MediaGroup.TYPE_PLAYBACK_QUEUE);
+        mDefaultSections.put(R.string.header_home, MediaGroup.TYPE_HOME);
+        mDefaultSections.put(R.string.header_trending, MediaGroup.TYPE_TRENDING);
+        mDefaultSections.put(R.string.header_sports, MediaGroup.TYPE_SPORTS);
+        mDefaultSections.put(R.string.badge_live, MediaGroup.TYPE_LIVE);
+        mDefaultSections.put(R.string.header_news, MediaGroup.TYPE_NEWS);
+        mDefaultSections.put(R.string.header_music, MediaGroup.TYPE_MUSIC);
+        mDefaultSections.put(R.string.header_history, MediaGroup.TYPE_HISTORY);
+        mDefaultSections.put(R.string.header_blocked_channels, MediaGroup.TYPE_BLOCKED_CHANNELS);
+        mDefaultSections.put(R.string.playback_queue_category_title, MediaGroup.TYPE_PLAYBACK_QUEUE);
         mDefaultSections.put(R.string.header_settings, MediaGroup.TYPE_SETTINGS);
     }
 
