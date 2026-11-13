@@ -19,15 +19,15 @@
     <color name="card_selected_background_grey">#343434</color>
     <color name="card_selected_text_black">#000000</color>
     <color name="card_selected_text_grey">#343434</color>
-    <color name="card_default_background">#1A1A1A</color>
-    <color name="card_default_background_dark">#111111</color>
+    <color name="card_default_background">#33212D3B</color>
+    <color name="card_default_background_dark">#2B182431</color>
     <color name="card_default_text">#FFFFFF</color>
 
     <!-- Browse fragment colors -->
-    <color name="shelf_background">#171717</color>
-    <color name="shelf_background_dark">#050505</color>
-    <color name="icon_background">#292929</color>
-    <color name="icon_alt_background">#202020</color>
+    <color name="shelf_background">#171E28</color>
+    <color name="shelf_background_dark">#0B111A</color>
+    <color name="icon_background">#50303D4D</color>
+    <color name="icon_alt_background">#4026313E</color>
     <color name="player_background">#FF000000</color>
 
     <!-- Dark color scheme -->
