@@ -68,11 +68,14 @@
         </LinearLayout>
     </FrameLayout>
 
+    <com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/liquid_glass_panel">
     <com.liskovsoft.smartyoutubetv2.tv.ui.mod.leanback.playerglue.tweaks.PlaybackTransportRowView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/transport_row"
-        android:background="@drawable/liquid_glass_panel"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:orientation="vertical"
@@ -207,4 +210,5 @@
 
 
     </com.liskovsoft.smartyoutubetv2.tv.ui.mod.leanback.playerglue.tweaks.PlaybackTransportRowView>
+    </com.liskovsoft.smartyoutubetv2.tv.ui.widgets.glass.GlassBlurView>
 </LinearLayout>
