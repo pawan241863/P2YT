@@ -37,13 +37,13 @@ public class SettingsCardPresenter extends Presenter {
 
         @SuppressLint("InflateParams")
         View container = LayoutInflater.from(context).inflate(R.layout.settings_card, null);
-        container.setBackgroundColor(mDefaultBackgroundColor);
+        container.setBackgroundResource(R.drawable.liquid_glass_panel);
         //if (VERSION.SDK_INT >= 23 && MainUIData.instance(context).isUiTweakEnabled(MainUIData.UI_TWEAK_ROUNDED_CORNERS)) {
         //    container.setForeground(ContextCompat.getDrawable(context, R.drawable.lb_card_outline));
         //}
 
         TextView textView = container.findViewById(R.id.settings_title);
-        textView.setBackgroundColor(mDefaultBackgroundColor);
+        textView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         textView.setTextColor(mDefaultTextColor);
 
         ViewUtil.setTextScrollSpeed(textView, getCardTextScrollSpeed(context));
@@ -52,7 +52,8 @@ public class SettingsCardPresenter extends Presenter {
             int backgroundColor = hasFocus ? mSelectedBackgroundColor : mDefaultBackgroundColor;
             int textColor = hasFocus ? mSelectedTextColor : mDefaultTextColor;
             
-            textView.setBackgroundColor(backgroundColor);
+            container.setBackgroundResource(hasFocus ? R.drawable.liquid_glass_panel_focused : R.drawable.liquid_glass_panel);
+            textView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
             textView.setTextColor(textColor);
 
             if (hasFocus) {
