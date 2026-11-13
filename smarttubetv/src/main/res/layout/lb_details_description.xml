@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top|end">
+
+    <androidx.leanback.widget.ResizingTextView
+        android:id="@+id/lb_details_description_title"
+        style="?attr/detailsDescriptionTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="end"
+        android:maxWidth="520dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lb_details_description_subtitle"
+        style="?attr/detailsDescriptionSubtitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/lb_details_description_body"
+        style="?attr/detailsDescriptionBodyStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</FrameLayout>
