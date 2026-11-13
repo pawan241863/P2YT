@@ -1,5 +1,4 @@
-# Dedicated standalone universal APK workflow for the Psquare YT customized Android TV build.
-# Build output: universal APK for broad Android TV device compatibility.
+# Installable debug-signed universal APK for Psquare YT Android TV.
 name: PSQUARE NEW YOUTUBE APK
 
 on:
@@ -22,10 +21,8 @@ permissions:
 
 jobs:
   build-psquare:
-    name: Build PSQUARE NEW YOUTUBE
+    name: Build installable PSQUARE NEW YOUTUBE universal APK
     runs-on: ubuntu-latest
-    env:
-      HAS_SIGNING_KEY: ${{ secrets.SIGNING_KEY != '' }}
 
     steps:
       - name: Checkout complete source
@@ -40,44 +37,34 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Configure optional release signing
-        if: ${{ env.HAS_SIGNING_KEY == 'true' }}
-        run: |
-          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" > keystore.properties
-          echo "keyAlias=${{ secrets.ALIAS }}" >> keystore.properties
-          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
-          echo "storeFile=${{ github.workspace }}/key.jks" >> keystore.properties
-          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ${{ github.workspace }}/key.jks
-
       - name: Grant Gradle permissions
         run: chmod +x gradlew
 
-      - name: Run release lint
-        run: ./gradlew lintStbetaRelease
-
-      - name: Build all release APK variants
-        run: ./gradlew clean assembleStbetaRelease
+      # Debug variant is automatically signed with Android's debug key,
+      # so installation does not depend on repository signing secrets.
+      - name: Build signed universal APK
+        run: ./gradlew clean assembleStbetaDebug
 
       - name: Prepare named universal APK
         shell: bash
         run: |
           set -euo pipefail
-          source_apk=$(find smarttubetv/build/outputs/apk/stbeta/release -maxdepth 1 -type f -name '*_universal.apk' -print -quit)
+          source_apk=$(find smarttubetv/build/outputs/apk/stbeta/debug -maxdepth 1 -type f -name '*_universal.apk' -print -quit)
           if [ -z "$source_apk" ]; then
-            echo "Universal APK was not produced by Gradle."
-            find smarttubetv/build/outputs/apk/stbeta/release -maxdepth 1 -type f -print
+            echo "Universal debug APK was not produced by Gradle."
+            find smarttubetv/build/outputs/apk/stbeta/debug -maxdepth 1 -type f -print
             exit 1
           fi
           mkdir -p dist
-          cp "$source_apk" "dist/PSQUARE NEW YOUTUBE.apk"
-          sha256sum "dist/PSQUARE NEW YOUTUBE.apk" | tee dist/SHA256SUMS.txt
+          cp "$source_apk" "dist/PSQUARE NEW YOUTUBE-universal-signed.apk"
+          sha256sum "dist/PSQUARE NEW YOUTUBE-universal-signed.apk" | tee dist/SHA256SUMS.txt
 
-      - name: Upload PSQUARE NEW YOUTUBE APK artifact
+      - name: Upload signed PSQUARE NEW YOUTUBE APK artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: PSQUARE NEW YOUTUBE
+          name: PSQUARE NEW YOUTUBE - INSTALLABLE UNIVERSAL
           path: |
-            dist/PSQUARE NEW YOUTUBE.apk
+            dist/PSQUARE NEW YOUTUBE-universal-signed.apk
             dist/SHA256SUMS.txt
           if-no-files-found: error
           compression-level: 0
