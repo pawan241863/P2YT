@@ -52,7 +52,6 @@
         android:allowBackup="true"
         android:allowAudioPlaybackCapture="true"
         android:hardwareAccelerated="true"
-        android:largeHeap="true"
         android:banner="@drawable/psquare_yt_banner"
         android:logo="@drawable/psquare_yt_logo"
         android:icon="@drawable/psquare_yt_logo"
