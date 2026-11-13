@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/lb_basic_card_info_height"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/liquid_glass_panel"
             android:padding="@dimen/lb_basic_card_info_padding">
 
             <!-- Content below will be replaced. Real locations: -->
